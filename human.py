@@ -9,7 +9,7 @@ class Human:
         self.name = random.choice(rawdata.name[self.gender])
         Human.population += 1
 
-
+# make the superpowers awesome dude
 class SuperHuman(Human):
     population = 0
     super.__init__()
