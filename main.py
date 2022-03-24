@@ -1,13 +1,25 @@
-from human import Human
-
-# just showing how github works
+import random
+from human import Human, SuperHuman
 
 family = []
+heros = []
+
 user_available_options = ['y', 'n']
 endgame = False
 
+def create_hero():
+    return SuperHuman()
+
+
 def create_person():
     return Human()
+
+
+def display_heros():
+    print(f"Total Supers: {SuperHuman.population}")
+    for idx, hero in enumerate(heros):
+        print(f'Super: {idx + 1} \t Super Hero Name: {hero.name} \tPower: {hero.power}')
+
 
 def display_family():
     print(f'Total Population: {Human.population}')
@@ -27,11 +39,16 @@ while not endgame:
 
     else:
         if choice == 'y':
-            family.append(create_person())
-            display_family()
+            if random.randint(1, 50) % 5 == 0:
+                heros.append(create_hero())
+                display_heros()
+            else:
+                family.append(create_person())
+                display_family()
+
             print()
         else:
             print("Thank you for playing 'World Creator'!\n")
             display_family()
+            display_heros()
             endgame = True
-

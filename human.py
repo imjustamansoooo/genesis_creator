@@ -5,13 +5,15 @@ class Human:
     population = 0
 
     def __init__(self):
-        self.gender = random.choice(rawdata.gender)
+        self.gender = random.choice(list(rawdata.name.keys()))
         self.name = random.choice(rawdata.name[self.gender])
         Human.population += 1
 
-# make the superpowers awesome dude
+
 class SuperHuman(Human):
     population = 0
-    super.__init__()
     def __init__(self):
-        pass
+        super().__init__()
+        self.name = random.choice(list(rawdata.powers.keys()))
+        self.power = random.choice(rawdata.powers[self.name])
+        SuperHuman.population += 1
